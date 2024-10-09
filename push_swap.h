@@ -24,6 +24,6 @@ void	ft_swap_one_stack(s_stack **stack_start, char stack);
 void	ft_swap_two_stacks(s_stack **stack_a, s_stack **stack_b);
 void	ft_pa_pb(s_stack **dest_stack, s_stack **src_stack, char stack);
 void	ft_rotate_one_stack(s_stack **stack_start, char stack);
-void	ft_rotate_two_stacks(s_stack **stack_a, s_stack **stack_b, char stack);
+void	ft_rotate_two_stacks(s_stack **stack_a, s_stack **stack_b);
 
 #endif
