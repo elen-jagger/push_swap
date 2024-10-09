@@ -2,6 +2,7 @@
 
 void	ft_push(s_stack **dest_stack, s_stack *node)
 {
+	//printf("IN PUSH\n");
 	if (!dest_stack)
 		return;
 	if (!*dest_stack)

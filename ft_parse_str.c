@@ -1,14 +1,5 @@
 #include "push_swap.h"
 
-// void	print_stack(s_stack **stack)
-// {
-// 	while (*stack)
-// 	{
-// 		printf("%li\n", (*stack)->value);
-// 		*stack = (*stack)->next;
-// 	}
-// }
-
 s_stack	*ft_parse_str(char *str)
 {
 	s_stack	*stack_a;
@@ -26,6 +17,5 @@ s_stack	*ft_parse_str(char *str)
 		i++;
 	}
 	free(arr);
-	//print_stack(&stack_a);
 	return (stack_a);
 }

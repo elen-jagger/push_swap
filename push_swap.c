@@ -1,23 +1,47 @@
 #include "push_swap.h"
 
+// void	print_stack(s_stack **stack)
+// {
+// 	s_stack	*temp_node;
+
+// 	temp_node = *stack;
+// 	while (*stack)
+// 	{
+// 		printf("%li\n", (*stack)->value);
+// 		*stack = (*stack)->next;
+// 	}
+// 	*stack = temp_node;
+// }
+
 int	main(int argc, char **argv)
 {
 	int	i;
+	int	arg;
+	s_stack	*stack_a;
+	s_stack	*stack_b;
 
+	stack_a = NULL;
+	stack_b = NULL;
 	if (argc < 2)
 		exit(0);
 	if (argc == 2)
 	{
-		ft_parse_str(argv[1]);
+		stack_a = ft_parse_str(argv[1]);
 	}
 	else
 	{
 		i = 1;
 		while (i < argc)
 		{
-			printf("%s\n", argv[i]);
+			arg = ft_validate_atoi(argv[i]);
+			ft_push(&stack_a, ft_create_new_node(arg));
 			i++;
 		}
 	}
-	return (0);
+	print_stack(&stack_a);
+	ft_pa_pb(&stack_a, &stack_b, 'a');
+	print_stack(&stack_a);
+	printf("~~~~~~~~~\n");
+	print_stack(&stack_b);
+	return (arg);
 }

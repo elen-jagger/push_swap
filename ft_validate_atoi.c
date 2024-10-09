@@ -18,6 +18,7 @@ int	ft_validate_atoi(char	*s)
 
 	sign = 1;
 	result = 0;
+	//printf("IN VALIDATE_ATOI\n");
 	while (*s == 32 || (*s > 8 && *s < 14))
 		s++;
 	if (*s == '+' || *s == '-')

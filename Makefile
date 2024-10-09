@@ -7,7 +7,8 @@ SRC =	push_swap.c \
 		ft_validate_atoi.c \
 		ft_create_new_node.c \
 		ft_find_last_node.c \
-		ft_push.c
+		ft_push.c \
+		operations.c \
 
 all:
 	@make -C libft/
