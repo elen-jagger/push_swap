@@ -48,3 +48,39 @@ void	ft_pa_pb(s_stack **src_stack, s_stack **dest_stack, char stack)
 	else
 		write(1, "pb\n", 3);
 }
+
+void	ft_rotate_one_stack(s_stack **stack_start, char stack)
+{
+	s_stack	*temp_node;
+
+	if (!*stack_start || !(*stack_start)->next)
+		return;
+	temp_node = *stack_start;
+	*stack_start = ft_find_last_node(*stack_start);
+	(*stack_start)->next = temp_node;
+	*stack_start = temp_node->next;
+	temp_node->next = NULL;
+	if (stack == 'a')
+		write(1, "ra\n", 3);
+	else
+		write(1, "rb\n", 3);
+}
+
+void	ft_rotate_two_stacks(s_stack **stack_a, s_stack **stack_b, char stack)
+{
+	s_stack	*temp_node;
+
+	if (!*stack_a || !(*stack_a)->next || !*stack_b || !(*stack_b)->next)
+		return;
+	temp_node = *stack_a;
+	*stack_a = ft_find_last_node(*stack_a);
+	(*stack_a)->next = temp_node;
+	*stack_a = temp_node->next;
+	temp_node->next = NULL;
+	temp_node = *stack_b;
+	*stack_b = ft_find_last_node(*stack_b);
+	(*stack_b)->next = temp_node;
+	*stack_b = temp_node->next;
+	temp_node->next = NULL;
+	write(1, "rr\n", 3);
+}

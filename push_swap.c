@@ -18,10 +18,10 @@ int	main(int argc, char **argv)
 	int	i;
 	int	arg;
 	s_stack	*stack_a;
-	s_stack	*stack_b;
+	//s_stack	*stack_b;
 
 	stack_a = NULL;
-	stack_b = NULL;
+	//stack_b = NULL;
 	if (argc < 2)
 		exit(0);
 	if (argc == 2)
@@ -39,9 +39,7 @@ int	main(int argc, char **argv)
 		}
 	}
 	print_stack(&stack_a);
-	ft_pa_pb(&stack_a, &stack_b, 'a');
+	ft_rotate(&stack_a, 'b');
 	print_stack(&stack_a);
-	printf("~~~~~~~~~\n");
-	print_stack(&stack_b);
 	return (arg);
 }
