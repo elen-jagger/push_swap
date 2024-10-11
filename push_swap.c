@@ -7,10 +7,28 @@ void	print_stack(s_stack **stack)
 	temp_node = *stack;
 	while (*stack)
 	{
-		printf("%li\n", (*stack)->value);
+		printf("(*stack)->value = %li\n", (*stack)->value);
+		// if((*stack)->prev)
+		// 	printf("(*stack)->prev->value = %li\n", (*stack)->prev->value);
 		*stack = (*stack)->next;
 	}
 	*stack = temp_node;
+}
+
+void	make_prevs(s_stack **stack)
+{
+	s_stack	*first_node;
+	s_stack	*temp_node;
+
+	first_node = *stack;
+	temp_node = *stack;
+	while ((*stack)->next)
+	{
+		*stack = (*stack)->next;
+		(*stack)->prev = temp_node;
+		temp_node = *stack;
+	}
+	*stack = first_node;
 }
 
 int	main(int argc, char **argv)
@@ -25,9 +43,12 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		exit(0);
 	if (argc == 2)
-	{
 		stack_a = ft_parse_str(argv[1]);
-	}
+	// if (argc == 3)
+	// {
+	// 	stack_a = ft_parse_str(argv[1]);
+	// 	stack_b = ft_parse_str(argv[2]);
+	// }
 	else
 	{
 		i = 1;
@@ -38,15 +59,16 @@ int	main(int argc, char **argv)
 			i++;
 		}
 	}
-	stack_b = stack_a;
+	make_prevs(&stack_a);
+	make_prevs(&stack_b);
+	printf("~~~~~STACK A~~~~~\n");
 	print_stack(&stack_a);
-	printf("~~~~~~~~~~\n");
-	//print_stack(&stack_b);
-	//printf("~~~~~~~~~~\n");
-	//ft_swap_two_stacks(&stack_a, &stack_b);
-	ft_swap_one_stack(&stack_a, 'a');
+	printf("~~~~~STACK B~~~~~\n");
+	print_stack(&stack_b);
+	ft_swap_two_stacks(&stack_a, &stack_b);
+	printf("~~~~~STACK A~~~~~\n");
 	print_stack(&stack_a);
-	printf("~~~~~~~~~~\n");
+	printf("~~~~~STACK B~~~~~\n");
 	print_stack(&stack_b);
 	return (arg);
 }
