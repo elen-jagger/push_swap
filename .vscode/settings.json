@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "limits.h": "c",
-        "push_swap.h": "c"
+        "push_swap.h": "c",
+        "random": "c"
     }
 }

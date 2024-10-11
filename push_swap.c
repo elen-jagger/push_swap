@@ -31,44 +31,65 @@ void	make_prevs(s_stack **stack)
 	*stack = first_node;
 }
 
-int	main(int argc, char **argv)
+s_stack	*make_stack(int argc, char **argv)
 {
 	int	i;
 	int	arg;
 	s_stack	*stack_a;
-	s_stack	*stack_b;
 
 	stack_a = NULL;
-	stack_b = NULL;
 	if (argc < 2)
 		exit(0);
 	if (argc == 2)
-		stack_a = ft_parse_str(argv[1]);
-	// if (argc == 3)
-	// {
-	// 	stack_a = ft_parse_str(argv[1]);
-	// 	stack_b = ft_parse_str(argv[2]);
-	// }
+		stack_a = parse_str(argv[1]);
 	else
 	{
 		i = 1;
 		while (i < argc)
 		{
-			arg = ft_validate_atoi(argv[i]);
-			ft_push(&stack_a, ft_create_new_node(arg));
+			arg = validate_atoi(argv[i]);
+			push(&stack_a, create_new_node(arg));
 			i++;
 		}
 	}
-	make_prevs(&stack_a);
-	make_prevs(&stack_b);
-	printf("~~~~~STACK A~~~~~\n");
-	print_stack(&stack_a);
-	printf("~~~~~STACK B~~~~~\n");
-	print_stack(&stack_b);
-	ft_swap_two_stacks(&stack_a, &stack_b);
-	printf("~~~~~STACK A~~~~~\n");
-	print_stack(&stack_a);
-	printf("~~~~~STACK B~~~~~\n");
-	print_stack(&stack_b);
-	return (arg);
+	return stack_a;
 }
+
+int	main(int argc, char **argv)
+{
+	s_stack	*stack_a;
+
+	stack_a = make_stack(argc, argv);
+	if (!stack_a || check_duplicates(stack_a))
+	{
+		free_stack(&stack_a);
+		show_error();
+	}
+	make_prevs(&stack_a);
+	printf("~~~~~STACK A~~~~~\n");
+	print_stack(&stack_a);
+	// rotate_one_stack(&stack_a, 'a');
+	// printf("~~~~~STACK A~~~~~\n");
+	// print_stack(&stack_a);
+	return (0);
+}
+
+// int	main(int argc, char **argv)
+// {
+// 	s_stack	*stack_a;
+// 	stack_a = NULL;
+// 	if (argc < 2)
+// 		exit(0);
+// 	if (argc == 2)
+// 		stack_a = parse_str(argv[1]);
+// 	else
+// 	{
+// 		stack_a = parse_args(argc, argv);
+// 	}
+// 	make_prevs(&stack_a);
+// 	printf("~~~~~STACK A~~~~~\n");
+// 	print_stack(&stack_a);
+// 	// printf("~~~~~STACK A~~~~~\n");
+// 	// print_stack(&stack_a);
+// 	return (0);
+// }

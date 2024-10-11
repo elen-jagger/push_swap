@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-s_stack	*ft_create_new_node(int arg)
+s_stack	*create_new_node(int arg)
 {
 	s_stack	*new_node;
 
