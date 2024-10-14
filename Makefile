@@ -9,7 +9,9 @@ SRC =	push_swap.c \
 		find_last_node.c \
 		push.c \
 		operations.c \
+		operations_1.c \
 		utils.c \
+		sort.c \
 
 all:
 	@make -C libft/

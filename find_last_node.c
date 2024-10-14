@@ -1,10 +1,10 @@
 #include "push_swap.h"
 
-s_stack	*find_last_node(s_stack *last_node)
+s_stack	*find_last_node(s_stack *stack)
 {
-	if (!last_node)
+	if (!stack)
 		return (NULL);
-	while (last_node->next)
-		last_node = last_node->next;
-	return (last_node);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
 }

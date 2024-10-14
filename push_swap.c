@@ -1,18 +1,14 @@
 #include "push_swap.h"
 
-void	print_stack(s_stack **stack)
+void	print_stack(s_stack *stack)
 {
-	s_stack	*temp_node;
-
-	temp_node = *stack;
-	while (*stack)
+	while (stack)
 	{
-		printf("(*stack)->value = %li\n", (*stack)->value);
+		printf("(*stack)->value = %li\n", stack->value);
 		// if((*stack)->prev)
 		// 	printf("(*stack)->prev->value = %li\n", (*stack)->prev->value);
-		*stack = (*stack)->next;
+		stack = stack->next;
 	}
-	*stack = temp_node;
 }
 
 void	make_prevs(s_stack **stack)
@@ -67,10 +63,13 @@ int	main(int argc, char **argv)
 	}
 	make_prevs(&stack_a);
 	printf("~~~~~STACK A~~~~~\n");
-	print_stack(&stack_a);
-	// rotate_one_stack(&stack_a, 'a');
-	// printf("~~~~~STACK A~~~~~\n");
-	// print_stack(&stack_a);
+	print_stack(stack_a);
+
+	if (!is_sorted(stack_a))
+		sort(&stack_a);
+	//free_stack(&stack_a);
+	printf("~~~~~SORTED STACK A~~~~~\n");
+	print_stack(stack_a);
 	return (0);
 }
 
