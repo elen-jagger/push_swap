@@ -27,11 +27,24 @@ void	free_stack(s_stack **stack)
 	while (*stack)
 	{
 		temp_node = (*stack)->next;
-		// (*stack)->value = 0;
+		(*stack)->value = 0;
 		free(*stack);
 		*stack = temp_node;
 	}
 	
+}
+
+int	list_size(s_stack *list)
+{
+	int	size;
+
+	size = 0;
+	while (list)
+	{
+		list = list->next;
+		size++;
+	}
+	return (size);
 }
 
 int	is_sorted(s_stack *stack)
@@ -42,8 +55,10 @@ int	is_sorted(s_stack *stack)
 	while (stack)
 	{
 		if (cur_value > stack->value)
-			{printf("not sorted\n");
-				return (0);}
+			{
+				printf("not sorted\n");
+				return (0);
+			}
 		cur_value = stack->value;
 		stack = stack->next;
 	}

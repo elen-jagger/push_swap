@@ -12,6 +12,8 @@ SRC =	push_swap.c \
 		operations_1.c \
 		utils.c \
 		sort.c \
+		operation_cases.c \
+		operation_action.c \
 
 all:
 	@make -C libft/
