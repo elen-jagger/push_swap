@@ -55,13 +55,9 @@ int	is_sorted(s_stack *stack)
 	while (stack)
 	{
 		if (cur_value > stack->value)
-			{
-				printf("not sorted\n");
-				return (0);
-			}
+			return (0);
 		cur_value = stack->value;
 		stack = stack->next;
 	}
-	printf("is sorted\n");
 	return (1);
 }

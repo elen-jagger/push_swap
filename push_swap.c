@@ -62,14 +62,11 @@ int	main(int argc, char **argv)
 		show_error();
 	}
 	make_prevs(&stack_a);
-	printf("~~~~~STACK A~~~~~\n");
-	print_stack(stack_a);
-
 	if (!is_sorted(stack_a))
 		sort(&stack_a);
-	//free_stack(&stack_a);
 	printf("~~~~~SORTED STACK A~~~~~\n");
 	print_stack(stack_a);
+	free_stack(&stack_a);
 	return (0);
 }
 
