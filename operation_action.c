@@ -89,10 +89,10 @@ int	do_rrarb(s_stack **stack_a, s_stack **stack_b, int cur_value, char stack_to_
 	else
 	{
 		// !!!
-		while ((*stack_b)->value != cur_value)
-			rotate_one_stack(stack_b, 'b');
 		while (predict_index_a(*stack_a, cur_value) > 0)
 			rev_rotate_one_stack(stack_a, 'a');
+		while ((*stack_b)->value != cur_value)
+			rotate_one_stack(stack_b, 'b');
 		pa_pb(stack_b, stack_a, 'a');
 	}
 	return (-1);
