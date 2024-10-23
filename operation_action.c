@@ -45,7 +45,7 @@ int	do_rrarrb(s_stack **stack_a, s_stack **stack_b, int cur_value, char stack_to
 			rev_rotate_two_stacks(stack_a, stack_b);
 		while ((*stack_b)->value != cur_value)
 			rev_rotate_one_stack(stack_b, 'b');
-		while (predict_index_a(*stack_b, cur_value) > 0)
+		while (predict_index_a(*stack_a, cur_value) > 0)
 			rev_rotate_one_stack(stack_a, 'a');
 		pa_pb(stack_b, stack_a, 'a');
 	}
