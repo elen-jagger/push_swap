@@ -3,6 +3,7 @@
 
 int	choose_operation_a_to_b(s_stack *stack_a, s_stack *stack_b)
 {
+	printf("~~~~IN choose_operation_a_to_b\n");
 	int		min_rotate;
 	s_stack	*temp_node;
 
@@ -20,28 +21,32 @@ int	choose_operation_a_to_b(s_stack *stack_a, s_stack *stack_b)
 			min_rotate = case_rarrb(stack_a, stack_b, temp_node->value, 'b');
 		temp_node = temp_node->next;
 	}
+	printf("IN choose_operation_a_to_b min_rotate = %i\n", min_rotate);
 	return (min_rotate);
 }
 
 int	choose_operation_b_to_a(s_stack *stack_a, s_stack *stack_b)
 {
+	printf("!!~~~~IN choose_operation_b_to_a\n");
 	int		min_rotate;
 	s_stack	*temp_node;
 
 	temp_node = stack_b;
-	min_rotate = case_rrarrb(stack_a, stack_b, stack_b->value, 'a');
+	min_rotate = case_rrarrb(stack_a, stack_b, stack_b->value, 'a');//2
 	while (temp_node)
 	{
-		if (min_rotate > case_rarb(stack_a, stack_b, temp_node->value, 'a'))
+		printf("~while (temp_node), temp_node = %li\n", temp_node->value);
+		if (min_rotate > case_rarb(stack_a, stack_b, temp_node->value, 'a'))//1
 			min_rotate = case_rarb(stack_a, stack_b, temp_node->value, 'a');
-		if (min_rotate > case_rrarrb(stack_a, stack_b, temp_node->value, 'a'))
+		if (min_rotate > case_rrarrb(stack_a, stack_b, temp_node->value, 'a'))//2
 			min_rotate = case_rrarrb(stack_a, stack_b, temp_node->value, 'a');
-		if (min_rotate > case_rrarb(stack_a, stack_b, temp_node->value, 'a'))
+		if (min_rotate > case_rrarb(stack_a, stack_b, temp_node->value, 'a'))//2
 			min_rotate = case_rrarb(stack_a, stack_b, temp_node->value, 'a');
-		if (min_rotate > case_rarrb(stack_a, stack_b, temp_node->value, 'a'))
+		if (min_rotate > case_rarrb(stack_a, stack_b, temp_node->value, 'a'))//1
 			min_rotate = case_rarrb(stack_a, stack_b, temp_node->value, 'a');
 		temp_node = temp_node->next;
 	}
+	printf("IN choose_operation_b_to_a min_rotate = %i\n", min_rotate);//1
 	return (min_rotate);
 }
 
@@ -62,6 +67,7 @@ int	case_rarb(s_stack *stack_a, s_stack *stack_b, int cur_value, char stack_to_p
 		if (min_rotate < get_index(stack_a, cur_value))
 			min_rotate = get_index(stack_a, cur_value);
 	}
+	printf("IN case_rarb min_rotate = %i\n", min_rotate);
 	return (min_rotate);
 }
 
@@ -89,6 +95,7 @@ int	case_rrarrb(s_stack *stack_a, s_stack *stack_b, int cur_value, char stack_to
 		if ((list_size(stack_a) - get_index(stack_a, cur_value)) > min_rotate && get_index(stack_a, cur_value))
 			min_rotate = list_size(stack_a) - get_index(stack_a, cur_value);
 	}
+	printf("IN case_rrarrb min_rotate = %i\n", min_rotate);
 	return (min_rotate);
 }
 
@@ -110,6 +117,7 @@ int	case_rarrb(s_stack *stack_a, s_stack *stack_b, int cur_value, char stack_to_
 			min_rotate = list_size(stack_b) - predict_index_b(stack_b, cur_value);
 		min_rotate = get_index(stack_a, cur_value) + min_rotate;
 	}
+	printf("IN case_rarrb min_rotate = %i\n", min_rotate);
 	return (min_rotate);
 }
 
@@ -131,5 +139,6 @@ int	case_rrarb(s_stack *stack_a, s_stack *stack_b, int cur_value, char stack_to_
 			min_rotate = list_size(stack_a) - get_index(stack_a, cur_value);
 		min_rotate = predict_index_b(stack_b, cur_value) + min_rotate;
 	}
+	printf("IN case_rrarb min_rotate = %i\n", min_rotate);
 	return (min_rotate);
 }

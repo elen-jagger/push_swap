@@ -77,7 +77,7 @@ s_stack	**sort_to_a(s_stack **stack_a, s_stack **stack_b)
 	while (*stack_b)
 	{
 		temp_node = *stack_b;
-		min_rotate = choose_operation_b_to_a(*stack_a, *stack_b);
+		min_rotate = choose_operation_b_to_a(*stack_a, *stack_b);//1
 		while (min_rotate >= 0)
 		{
 			if (min_rotate == case_rarb(*stack_a, *stack_b, temp_node->value, 'a'))
