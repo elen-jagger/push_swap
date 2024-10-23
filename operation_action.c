@@ -2,6 +2,7 @@
 
 int	do_rarb(s_stack **stack_a, s_stack **stack_b, int cur_value, char stack_to_push)
 {
+	printf("~~~~IN do_rarb\n");
 	if (stack_to_push == 'a')
 	{
 		while ((*stack_a)->value != cur_value && predict_index_b(*stack_b,cur_value) > 0)
@@ -27,6 +28,7 @@ int	do_rarb(s_stack **stack_a, s_stack **stack_b, int cur_value, char stack_to_p
 
 int	do_rrarrb(s_stack **stack_a, s_stack **stack_b, int cur_value, char stack_to_push)
 {
+	printf("~~~~IN do_rrarrb\n");
 	if (stack_to_push == 'a')
 	{
 		while ((*stack_a)->value != cur_value && predict_index_b(*stack_b,cur_value) > 0)
@@ -52,6 +54,7 @@ int	do_rrarrb(s_stack **stack_a, s_stack **stack_b, int cur_value, char stack_to
 
 int	do_rarrb(s_stack **stack_a, s_stack **stack_b, int cur_value, char stack_to_push)
 {
+	printf("~~~~IN do_rarrb\n");
 	if (stack_to_push == 'a')
 	{
 		while ((*stack_a)->value != cur_value)
@@ -74,6 +77,7 @@ int	do_rarrb(s_stack **stack_a, s_stack **stack_b, int cur_value, char stack_to_
 
 int	do_rrarb(s_stack **stack_a, s_stack **stack_b, int cur_value, char stack_to_push)
 {
+	printf("~~~~IN do_rrarb\n");
 	if (stack_to_push == 'a')
 	{
 		while ((*stack_a)->value != cur_value)

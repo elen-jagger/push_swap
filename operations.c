@@ -2,6 +2,7 @@
 
 void	swap_one_stack(s_stack **stack_start, char stack)
 {
+	printf("~~~~IN swap_one_stack\n");
 	s_stack	*temp_node;
 
 	if (!*stack_start || !(*stack_start)->next)
@@ -18,6 +19,7 @@ void	swap_one_stack(s_stack **stack_start, char stack)
 
 void	swap_two_stacks(s_stack **stack_a, s_stack **stack_b)
 {
+	printf("~~~~IN swap_two_stacks\n");
 	if (!*stack_a || !(*stack_a)->next || !*stack_b || !(*stack_b)->next)
 		return;
 	swap_one_stack(stack_a, 'c');
@@ -27,6 +29,7 @@ void	swap_two_stacks(s_stack **stack_a, s_stack **stack_b)
 
 void	pa_pb(s_stack **src_stack, s_stack **dest_stack, char stack)
 {
+	printf("~~~~IN pa_pb\n");
 	s_stack	*temp_node;
 
 	if (!*src_stack)

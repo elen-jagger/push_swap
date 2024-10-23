@@ -2,6 +2,7 @@
 
 int	check_duplicates(s_stack *stack)
 {
+	printf("~~~~IN check_duplicates\n");
 	s_stack	*temp_node;
 
 	while (stack)
@@ -20,6 +21,7 @@ int	check_duplicates(s_stack *stack)
 
 void	free_stack(s_stack **stack)
 {
+	printf("~~~~IN free_stack\n");
 	s_stack	*temp_node;
 
 	if (!stack)
@@ -36,6 +38,7 @@ void	free_stack(s_stack **stack)
 
 int	list_size(s_stack *list)
 {
+	printf("~~~~IN list_size\n");
 	int	size;
 
 	size = 0;
@@ -49,6 +52,7 @@ int	list_size(s_stack *list)
 
 int	is_sorted(s_stack *stack)
 {
+	printf("~~~~IN is_sorted\n");
 	int	cur_value;
 
 	cur_value = 0;

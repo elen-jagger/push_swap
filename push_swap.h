@@ -18,7 +18,8 @@ int		case_rrarrb(s_stack *stack_a, s_stack *stack_b, int cur_value, char stack_t
 int		case_rarrb(s_stack *stack_a, s_stack *stack_b, int cur_value, char stack_to_push);
 int		case_rrarb(s_stack *stack_a, s_stack *stack_b, int cur_value, char stack_to_push);
 int		check_duplicates(s_stack *stack);
-int		choose_operation(s_stack *stack_a, s_stack *stack_b, char stack_to_push);
+int		choose_operation_a_to_b(s_stack *stack_a, s_stack *stack_b);
+int		choose_operation_b_to_a(s_stack *stack_a, s_stack *stack_b);
 int		do_rarb(s_stack **stack_a, s_stack **stack_b, int cur_value, char stack_to_push);
 int		do_rrarrb(s_stack **stack_a, s_stack **stack_b, int cur_value, char stack_to_push);
 int		do_rarrb(s_stack **stack_a, s_stack **stack_b, int cur_value, char stack_to_push);
@@ -51,5 +52,6 @@ void	sort_till_3(s_stack **stack_a, s_stack **stack_b);
 void	sort_3(s_stack **stack);
 void	swap_one_stack(s_stack **stack_start, char stack);
 void	swap_two_stacks(s_stack **stack_a, s_stack **stack_b);
+void	print_stack(s_stack *stack);
 
 #endif

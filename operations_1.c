@@ -2,6 +2,7 @@
 
 void	rotate_one_stack(s_stack **stack_start, char stack)
 {
+	printf("~~~~IN rotate_one_stack\n");
 	s_stack	*temp_node;
 
 	if (!*stack_start || !(*stack_start)->next)
@@ -19,6 +20,7 @@ void	rotate_one_stack(s_stack **stack_start, char stack)
 
 void	rotate_two_stacks(s_stack **stack_a, s_stack **stack_b)
 {
+	printf("~~~~IN rotate_two_stacks\n");
 	if (!*stack_a || !(*stack_a)->next || !*stack_b || !(*stack_b)->next)
 		return;
 	rotate_one_stack(stack_a, 'c');
@@ -28,6 +30,7 @@ void	rotate_two_stacks(s_stack **stack_a, s_stack **stack_b)
 
 void	rev_rotate_one_stack(s_stack **stack_start, char stack)
 {
+	printf("~~~~IN rev_rotate_one_stack\n");
 	s_stack	*first_node;
 	s_stack	*last_node;
 
@@ -46,6 +49,7 @@ void	rev_rotate_one_stack(s_stack **stack_start, char stack)
 
 void	rev_rotate_two_stacks(s_stack **stack_a, s_stack **stack_b)
 {
+	printf("~~~~IN rev_rotate_two_stacks\n");
 	if (!*stack_a || !(*stack_a)->next || !*stack_b || !(*stack_b)->next)
 		return;
 	rev_rotate_one_stack(stack_a, 'c');

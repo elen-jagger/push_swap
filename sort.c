@@ -2,23 +2,26 @@
 
 void	sort_till_3(s_stack **stack_a, s_stack **stack_b)
 {
+	printf("~~~~IN sort_till_3\n");
 	int		min_rotate;
 	s_stack	*temp_node;
+	
+	printf("sort_till_3 stack->value = %li \n", (*stack_b)->value);
 
 	while (list_size(*stack_a) > 3 && !is_sorted(*stack_a))
 	{
 		temp_node = *stack_a;
-		min_rotate = choose_operation(*stack_a, *stack_b, 'b');
+		min_rotate = choose_operation_a_to_b(*stack_a, *stack_b);
 		while (min_rotate >= 0)
 		{
 			if (min_rotate == case_rarb(*stack_a, *stack_b, temp_node->value, 'b'))
-				min_rotate = do_rarb(stack_a, stack_b, temp_node->value, 'b');
+				min_rotate = do_rarb(stack_a, stack_b, temp_node->value, 'a');
 			else if (min_rotate == case_rrarrb(*stack_a, *stack_b, temp_node->value, 'b'))
-				min_rotate = do_rrarrb(stack_a, stack_b, temp_node->value, 'b');
+				min_rotate = do_rrarrb(stack_a, stack_b, temp_node->value, 'a');
 			else if (min_rotate == case_rarrb(*stack_a, *stack_b, temp_node->value, 'b'))
-				min_rotate = do_rarrb(stack_a, stack_b, temp_node->value, 'b');
+				min_rotate = do_rarrb(stack_a, stack_b, temp_node->value, 'a');
 			else if (min_rotate == case_rrarb(*stack_a, *stack_b, temp_node->value, 'b'))
-				min_rotate = do_rrarb(stack_a, stack_b, temp_node->value, 'b');
+				min_rotate = do_rrarb(stack_a, stack_b, temp_node->value, 'a');
 			else
 				temp_node = temp_node->next;
 		}
@@ -27,6 +30,7 @@ void	sort_till_3(s_stack **stack_a, s_stack **stack_b)
 
 void	sort_3(s_stack **stack)
 {
+	printf("~~~~IN sort_3\n");
 	if ((*stack)->value == get_min(*stack))
 	{
 		rev_rotate_one_stack(stack, 'a');
@@ -49,13 +53,14 @@ void	sort_3(s_stack **stack)
 
 s_stack	*sort_to_b(s_stack **stack_a)
 {
+	printf("!!~~~~IN sort_to_b\n");
 	s_stack	*stack_b;
 
 	stack_b = NULL;
 	if (list_size(*stack_a) >3 && !is_sorted(*stack_a))
-		pa_pb(&stack_b, stack_a, 'b');
+		pa_pb(stack_a, &stack_b, 'b');
 	if (list_size(*stack_a) >3 && !is_sorted(*stack_a))
-		pa_pb(&stack_b, stack_a, 'b');
+		pa_pb(stack_a, &stack_b, 'b');
 	if (list_size(*stack_a) >3 && !is_sorted(*stack_a))
 		sort_till_3(stack_a, &stack_b);
 	if (!is_sorted(*stack_a))
@@ -65,23 +70,24 @@ s_stack	*sort_to_b(s_stack **stack_a)
 
 s_stack	**sort_to_a(s_stack **stack_a, s_stack **stack_b)
 {
+	printf("!!~~~~IN sort_to_a\n");
 	int		min_rotate;
 	s_stack	*temp_node;
 
 	while (*stack_b)
 	{
 		temp_node = *stack_b;
-		min_rotate = choose_operation(*stack_a, *stack_b, 'a');
+		min_rotate = choose_operation_b_to_a(*stack_a, *stack_b);
 		while (min_rotate >= 0)
 		{
 			if (min_rotate == case_rarb(*stack_a, *stack_b, temp_node->value, 'a'))
-				min_rotate = do_rarb(stack_a, stack_b, temp_node->value, 'a');
+				min_rotate = do_rarb(stack_a, stack_b, temp_node->value, 'b');
 			else if (min_rotate == case_rrarrb(*stack_a, *stack_b, temp_node->value, 'a'))
-				min_rotate = do_rrarrb(stack_a, stack_b, temp_node->value, 'a');
+				min_rotate = do_rrarrb(stack_a, stack_b, temp_node->value, 'b');
 			else if (min_rotate == case_rarrb(*stack_a, *stack_b, temp_node->value, 'a'))
-				min_rotate = do_rarrb(stack_a, stack_b, temp_node->value, 'a');
+				min_rotate = do_rarrb(stack_a, stack_b, temp_node->value, 'b');
 			else if (min_rotate == case_rrarb(*stack_a, *stack_b, temp_node->value, 'a'))
-				min_rotate = do_rrarb(stack_a, stack_b, temp_node->value, 'a');
+				min_rotate = do_rrarb(stack_a, stack_b, temp_node->value, 'b');
 			else
 				temp_node = temp_node->next;
 		}
@@ -91,6 +97,7 @@ s_stack	**sort_to_a(s_stack **stack_a, s_stack **stack_b)
 
 void	sort(s_stack **stack_a)
 {
+	printf("~~~~IN sort\n");
 	int		index_min;
 	s_stack	*stack_b;
 
